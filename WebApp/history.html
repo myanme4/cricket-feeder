@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <title>Historical Data | Automatic Cricket Feeding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ✅ เพิ่มไฟล์ CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+
+    <!-- Firebase -->
+    <script type="module" src="js/history.js" defer></script>
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/material.min.js" defer></script>
+    <script src="js/ripples.min.js" defer></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <!-- ✅ CanvasJS (กราฟ) -->
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js" defer></script>
+
+    <!-- ✅ โหลดไฟล์ JavaScript แยก -->
+    <script src="js/history.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-title">ข้อมูลอุณหภูมิและระดับความชื้นย้อนหลัง <small>Automatic Cricket Feeding</small></h1>
+        <hr />
+
+        <!-- ✅ Navigation Tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="setting.html">Setting</a>
+            </li>
+        </ul>
+
+        <!-- ✅ Spinner ขณะโหลดข้อมูล -->
+        <div class="text-center" id="loadingSpinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">กำลังโหลด...</span>
+            </div>
+        </div>
+
+        <!-- ✅ แสดงกราฟ -->
+        <div id="chartContainer" style="height: 300px; width: 100%; margin-top: 20px;"></div>
+
+        <!-- ✅ ทำให้ตาราง Responsive -->
+        <div class="table-responsive">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th class="text-date" style="width: 25%;">วันที่</th>
+                        <th class="text-danger" style="width: 25%;">อุณหภูมิ (°C)</th>
+                        <th class="text-info" style="width: 25%;">ระดับความชื้น (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ✅ ตรวจสอบว่าหน้านี้โหลดได้ -->
+    <script>
+        console.log("✅ history.html is running...");
+    </script>
+</body>
+</html>

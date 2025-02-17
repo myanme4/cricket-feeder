@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <title>Settings | Automatic Cricket Feeding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ✅ เพิ่มไฟล์ CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script>
+
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="js/ripples.min.js"></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 25px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 3.5px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #28a745;
+        }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        .feed-button {
+            background-color: #5a5a5a;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .feed-button:active {
+            background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ตั้งค่าระบบ <small>Automatic Cricket Feeding</small></h1>
+        <hr />
+
+        <!-- ✅ Navigation Tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Setting</a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <!-- ✅ ตารางควบคุม -->
+        <table class="table table-bordered text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ฟังก์ชัน</th>
+                    <th>การควบคุม</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ให้อาหาร</td>
+                    <td><button class="feed-button" id="feed-food">FEED</button></td>
+                </tr>
+                <tr>
+                    <td>ให้น้ำ</td>
+                    <td><button class="feed-button" id="feed-water">FEED</button></td>
+                </tr>
+                <tr>
+                    <td>แสงไฟ</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-light">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>พัดลม</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-fan">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ✅ ปุ่มรีเซ็ตระบบ -->
+        <div class="text-center mt-4">
+            <button class="btn btn-danger btn-lg" id="reset-system">รีเซ็ตระบบ</button>
+        </div>
+    </div>
+
+    <!-- ✅ โหลด JavaScript -->
+<script type="module" src="js/setting.js"></script>
+</body>
+</html>
