@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <title>Temperature & Humidity Dashboard | Automatic Cricket Feeding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="600"> <!-- ✅ รีเฟรชทุก 10 นาที -->
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- CanvasJS -->
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="css/ripples.min.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/material.min.js" defer></script>
+    <script src="js/ripples.min.js" defer></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- ✅ ใช้ไฟล์ CSS แยก -->
+
+    <style>
+        #chartContainer {
+            min-height: 350px;
+        }
+        #alertContainer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ข้อมูลอุณหภูมิและระดับความชื้น <small>Automatic Cricket Feeding</small></h1>
+        <hr />
+
+        <!-- ✅ Navigation Tabs -->
+        <ul class="nav nav-tabs" id="myTabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#overview" data-bs-toggle="tab">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="setting.html">Setting</a>
+            </li>
+        </ul>
+
+        <!-- ✅ Tab Content -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade show active" id="overview">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dialog primary" id="temperature">
+                            <div class="content">00.0 &deg;C</div>
+                            <div class="title">Temperature</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="dialog info" id="humidity">
+                            <div class="content">00.0 %</div>
+                            <div class="title">Humidity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ✅ กราฟ -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="chartContainer" style="height: 350px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ ระบบแจ้งเตือน -->
+    <div id="alertContainer"></div>
+
+    <!-- ✅ โหลด `script.js` (Firebase SDK v9+) -->
+    <script type="module" src="js/script.js" defer></script>
+    <script src="js/app.js" defer></script> <!-- ✅ ใช้ไฟล์ JS แยก -->
+
+    <!-- ✅ ทดสอบ Console Log -->
+    <script>
+        console.log("✅ index.html is running...");
+    </script>
+</body>
+</html>
